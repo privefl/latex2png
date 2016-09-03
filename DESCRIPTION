@@ -12,6 +12,7 @@ Description: R package to convert some Latex outputs
 License: GPL-3
 LazyData: TRUE
 Depends: R (>= 3.3.1)
+Imports: tikzDevice, xtable, tools, pdftools, png, grDevices
 RoxygenNote: 5.0.1
 URL: https://github.com/privefl/latex2png
 BugReports: https://github.com/privefl/latex2png/issues
