@@ -9,10 +9,15 @@
 TikzPng <- function(fun.plot, name, width = 4,
                     height = width/1.2, dpi = 72) {
   tex <- paste0(name, ".tex")
-  tikzDevice::tikz(tex, width = width, height = height,
+  dir <- dirname(tex)
+  wd.save <- setwd(dir)
+  tex2 <- basename(tex)
+  tikzDevice::tikz(tex2, width = width, height = height,
                    standAlone = TRUE)
   fun.plot()
   grDevices::dev.off()
 
   ConvertPng(tex, dpi = dpi)
+  setwd(wd.save)
+  file.path(dir, sub("\\.tex$", ".png", tex2))
 }
